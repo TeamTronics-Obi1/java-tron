@@ -25,7 +25,7 @@ public abstract class AbstractIndex<E extends ProtoCapsule<T>, T> implements Ifa
   protected File indexPath;
 
   public AbstractIndex() {
-    if (!parent.exists()) {
+    if (!parent.mkdirs()) {
       parent.mkdirs();
     }
     indexPath = new File(parent, getName() + ".index");
@@ -39,7 +39,7 @@ public abstract class AbstractIndex<E extends ProtoCapsule<T>, T> implements Ifa
         Args.getInstance().getOutputDirectoryByDbName(dbName),
         Args.getInstance().getStorage().getIndexDirectory()
     ).toFile();
-    if (!parentDir.exists()) {
+    if (!parentDir.mkdirs()) {
       parentDir.mkdirs();
     }
     indexPath = new File(parentDir, getName() + ".index");

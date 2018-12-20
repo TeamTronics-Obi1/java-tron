@@ -913,7 +913,7 @@ public class ECKey implements Serializable {
     byte[] thisKey = this.pub.getEncoded(/* compressed */ false);
     for (int i = 0; i < 4; i++) {
       byte[] k = ECKey.recoverPubBytesFromSignature(i, sig, messageHash);
-      if (k != null && Arrays.equals(k, thisKey)) {
+      if (k != null && Arrays.isEqual(k, thisKey)) {
         recId = i;
         break;
       }

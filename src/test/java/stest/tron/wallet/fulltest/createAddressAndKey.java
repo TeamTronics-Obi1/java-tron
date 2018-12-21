@@ -185,7 +185,7 @@ public class createAddressAndKey {
       fis = new FileInputStream(file);
       isr = new InputStreamReader(fis);
       br = new BufferedReader(isr);
-      StringBuffer buffer = new StringBuffer();
+      StringBuffer buffer = new StringBuilder();
 
       for (int i = 0;(temp = br.readLine()) != null;i++) {
         buffer.append(temp);
